@@ -84,7 +84,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(10, 10, 10, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1600&q=80') center/cover;
             position: relative;
             overflow: hidden;
         }
@@ -94,7 +95,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 50%, rgba(197, 151, 100, 0.1) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(197, 151, 100, 0.15) 0%, transparent 50%);
             animation: pulse 8s ease-in-out infinite;
         }
 
@@ -115,21 +116,24 @@
             color: #c59764;
             letter-spacing: 4px;
             animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
         }
 
         .hero .tagline {
             font-size: 1.3rem;
-            color: #d4d4d4;
+            color: #f5f5f5;
             margin-bottom: 0.5rem;
             letter-spacing: 3px;
             animation: fadeInUp 1.2s ease;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
         }
 
         .hero .location {
             font-size: 1rem;
-            color: #999;
+            color: #d4d4d4;
             margin-bottom: 2.5rem;
             animation: fadeInUp 1.4s ease;
+            text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
         }
 
         @keyframes fadeInUp {
@@ -193,17 +197,68 @@
 
         .about-image {
             height: 400px;
-            background: linear-gradient(45deg, #c59764 0%, #8b6f47 100%);
+            background: url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?w=800&q=80') center/cover;
             border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
             transition: transform 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
 
         .about-image:hover {
             transform: scale(1.02);
+        }
+
+        .gallery {
+            background: #050505;
+            padding: 6rem 5%;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 0.5;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            z-index: 1;
         }
 
         .features {
@@ -244,6 +299,125 @@
             line-height: 1.6;
         }
 
+        .menu-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .menu-categories {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .menu-category {
+            background: rgba(197, 151, 100, 0.05);
+            padding: 3rem;
+            border: 1px solid rgba(197, 151, 100, 0.2);
+            border-radius: 4px;
+        }
+
+        .menu-category h3 {
+            font-size: 2rem;
+            color: #c59764;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .menu-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(197, 151, 100, 0.1);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h4 {
+            color: #c59764;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            color: #b4b4b4;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .events-section {
+            background: url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1600&q=80') center/cover fixed;
+            position: relative;
+            padding: 8rem 5%;
+        }
+
+        .events-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.85);
+        }
+
+        .events-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .events-content h2 {
+            margin-bottom: 2rem;
+        }
+
+        .events-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #d4d4d4;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background: rgba(197, 151, 100, 0.1);
+            padding: 2rem;
+            border: 1px solid rgba(197, 151, 100, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            background: rgba(197, 151, 100, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .event-card h4 {
+            color: #c59764;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-card .day {
+            color: #f5f5f5;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-card .time {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
         .hours-location {
             background: rgba(197, 151, 100, 0.05);
             padding: 4rem;
@@ -282,17 +456,22 @@
         @media (max-width: 768px) {
             .nav-links {
                 gap: 1.5rem;
+                font-size: 0.85rem;
             }
 
             .hero h1 {
                 font-size: 3rem;
             }
 
-            .about-content, .hours-location {
+            .about-content, .hours-location, .menu-categories {
                 grid-template-columns: 1fr;
             }
 
             .features {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -309,6 +488,9 @@
             <ul class="nav-links">
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#about">ABOUT</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#menu">DRINKS</a></li>
+                <li><a href="#events">EVENTS</a></li>
                 <li><a href="#visit">VISIT</a></li>
             </ul>
         </nav>
@@ -329,8 +511,9 @@
             <div class="about-text">
                 <p>Welcome to The PigPen, where sophistication meets San Antonio's vibrant Broadway district. Located across from the historic Witte Museum, we offer a refined escape for discerning patrons.</p>
                 <p>Our carefully curated selection of premium spirits, craft cocktails, and local brews creates an atmosphere of elegant comfort. Whether you're celebrating a special occasion or enjoying an evening with friends, The PigPen delivers an experience that's both modern and timeless.</p>
+                <p>From our handcrafted cocktails to our rotating selection of rare whiskeys, every detail is designed to elevate your evening.</p>
             </div>
-            <div class="about-image">🐷</div>
+            <div class="about-image"></div>
         </div>
 
         <div class="features">
@@ -348,6 +531,98 @@
                 <div class="feature-icon">✨</div>
                 <h3>REFINED SETTING</h3>
                 <p>Modern design with classic touches for an elevated bar experience</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>GALLERY</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1509669803555-fd5a0a899224?w=800&q=80')">
+                <div class="gallery-caption">CRAFT COCKTAILS</div>
+            </div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80')">
+                <div class="gallery-caption">INTIMATE SETTING</div>
+            </div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80')">
+                <div class="gallery-caption">CURATED SELECTION</div>
+            </div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80')">
+                <div class="gallery-caption">ELEGANT BAR</div>
+            </div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80')">
+                <div class="gallery-caption">ATMOSPHERE</div>
+            </div>
+            <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1560963689-e1b5c3a4c872?w=800&q=80')">
+                <div class="gallery-caption">MIXOLOGY</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <h2>SIGNATURE DRINKS</h2>
+        <div class="menu-categories">
+            <div class="menu-category">
+                <h3>CLASSIC COCKTAILS</h3>
+                <div class="menu-item">
+                    <h4>Old Fashioned</h4>
+                    <p>Premium bourbon, bitters, sugar, orange twist</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Manhattan</h4>
+                    <p>Rye whiskey, sweet vermouth, aromatic bitters</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Negroni</h4>
+                    <p>Gin, Campari, sweet vermouth</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Martini</h4>
+                    <p>Your choice of gin or vodka, dry vermouth</p>
+                </div>
+            </div>
+            <div class="menu-category">
+                <h3>HOUSE SPECIALTIES</h3>
+                <div class="menu-item">
+                    <h4>The Broadway</h4>
+                    <p>Texas whiskey, house-made syrup, lemon, egg white</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Witte Sunset</h4>
+                    <p>Mezcal, grapefruit, jalapeño, lime, agave</p>
+                </div>
+                <div class="menu-item">
+                    <h4>PigPen Perfect</h4>
+                    <p>Bourbon, amaretto, fresh citrus, cherry</p>
+                </div>
+                <div class="menu-item">
+                    <h4>San Antonio Sipper</h4>
+                    <p>Tequila reposado, prickly pear, lime, tajín rim</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="events-section">
+        <div class="events-content">
+            <h2>WEEKLY EVENTS</h2>
+            <p>Join us throughout the week for special events, live music, and exclusive tastings. There's always something happening at The PigPen.</p>
+            <div class="event-list">
+                <div class="event-card">
+                    <h4>WHISKEY WEDNESDAY</h4>
+                    <p class="day">Every Wednesday</p>
+                    <p class="time">6pm - 10pm</p>
+                </div>
+                <div class="event-card">
+                    <h4>LIVE JAZZ</h4>
+                    <p class="day">Friday & Saturday</p>
+                    <p class="time">8pm - 11pm</p>
+                </div>
+                <div class="event-card">
+                    <h4>SUNDAY SOCIAL</h4>
+                    <p class="day">Every Sunday</p>
+                    <p class="time">5pm - 9pm</p>
+                </div>
             </div>
         </div>
     </section>
@@ -395,6 +670,14 @@
             } else {
                 header.style.background = 'rgba(10, 10, 10, 0.95)';
             }
+        });
+
+        // Parallax effect for events section
+        window.addEventListener('scroll', () => {
+            const eventsSection = document.querySelector('.events-section');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * 0.5;
+            eventsSection.style.backgroundPositionY = rate + 'px';
         });
     </script>
 </body>
